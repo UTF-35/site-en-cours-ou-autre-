@@ -1,0 +1,230 @@
+/* VARIABLES DE COULEURS ET FONTS */
+:root {
+    --afx-green: #ccff00;
+    --afx-bg: #f4f4f4;
+    --afx-text: #111;
+    --afx-mono: 'Courier New', Courier, monospace;
+}
+
+/* CONFIGURATION GLOBALE*/
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--afx-bg);
+    font-family: var(--afx-mono);
+    color: var(--afx-text);
+    overflow: auto; 
+}
+
+/*LOGO CENTRAL*/
+.logo1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 500px; 
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s ease-in-out; 
+    z-index: 5;
+}
+
+.logo1 img { 
+    width: 100%;
+    height: auto; 
+}
+
+.logo1:hover { 
+    transform: translate(-50%, -50%) scale(1.1) rotate(360deg);
+}
+
+/*LES ALBUMS AUX COINS*/
+.corner-box {
+    position: absolute;
+    width: 200px; 
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.corner-box img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.corner-box:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+/* Positions précises */
+.top-left { top: 13%; left: 10%; }
+.top-right { top: 13%; right: 10%; }
+.bottom-left { bottom: 13%; left: 10%; }
+.bottom-right { bottom: 13%; right: 10%; }
+
+/*PAGES ALBUMS & BIO*/
+.back-btn {
+    position: fixed;
+    top: 20px; left: 20px;
+    padding: 10px 15px;
+    border: 1px solid black;
+    background: white;
+    z-index: 100;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+.back-btn:hover {
+    background: black;
+    color: var(--afx-green);
+}
+
+.content-layout {
+    display: flex;
+    min-height: 970px;
+}
+
+.cover-side {
+    flex: 1;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    height: 970px;
+}
+.cover-side img {
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+.info-side {
+    flex: 1;
+    padding: 60px;
+    background: rgb(255, 255, 255);
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 56px;
+    letter-spacing: -2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.meta {
+    font-size: 14.5px;
+    color: #666;
+    margin-bottom: 40px;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    display: block;
+}
+
+.bio-text, .album-desc {
+    font-size: 16.5px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.tracklist {
+    font-size: 13.5px;
+    border-top: 2px solid black;
+    padding-top: 20px;
+}
+.tracklist ul { list-style: none; padding: 0; }
+.tracklist li { margin-bottom: 8px; font-family: monospace; }
+.tracklist span { color: #888; margin-left: 10px; }
+
+/* Pour la page centrale specifique */
+.bio-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.logaimg {
+    width: 1000px;
+    border-radius: 45px;
+    margin-top: 50px;
+    max-height: 650px;
+}
+
+.logoatdemarche {
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Légende sous le spectrogramme */
+.legende-spectro {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.65rem;
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Ligne séparatrice avec label centré */
+.separateur {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 0;
+    position: relative;
+}
+
+.separateur::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--afx-bg);
+    padding: 0 12px;
+    font-size: 10.5px;
+    color: #aaa;
+    letter-spacing: 3px;
+}
+
+/* Note de bas de page */
+.note-bas {
+    font-size: 10.5px;
+    color: #aaa;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Curseur clignotant */
+.curseur {
+    display: inline-block;
+    width: 9px;
+    height: 18px;
+    background: black;
+    vertical-align: text-bottom;
+    animation: clignoter 1s step-end infinite;
+}
+/* Animation pour le curseur clignotant */
+@keyframes clignoter {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
